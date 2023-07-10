@@ -1,0 +1,96 @@
+@use 'reset'
+@use 'colors'
+@use 'variables'
+@use 'mixins'
+
+body
+    background-color: colors.$grayish-blue
+
+.container
+    width: 100vw
+    height: 100vh
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+
+    &_content
+        max-width: 1440px
+        width: 100%
+        height: 100%
+        padding: 64px 16px
+
+.community
+    border-radius: 8px 8px 0 0
+    background-color: colors.$white
+
+    &_title
+        @include mixins.fontSizeBold(1.5rem, colors.$cyan)
+
+    &_subtitle
+        margin: 16px 0
+        @include mixins.fontSizeBold(1rem, colors.$red)
+
+    &_paragraph
+        @include mixins.fontSizeRegular(1rem, colors.$grayish-blue)
+
+.community, .signup, .whyus
+    display: flex
+    flex-direction: column
+    justify-content: center
+    padding: 32px
+
+.signup, .whyus
+    color: colors.$white
+
+    &_title
+        @include mixins.fontSizeBold(1.5rem, colors.$white)
+
+.signup
+    background-color: colors.$cyan
+
+    &_price
+        display: flex
+        align-items: center
+        margin-top: 16px
+
+        &_number
+            @include mixins.fontSizeBold(3rem, colors.$white)
+
+        &_month
+            margin-left: 16px
+            @include mixins.fontSizeRegular(1.2rem, rgba(255, 255, 255, 0.70))
+
+    &_description
+        @include mixins.fontSizeRegular(1rem, colors.$white)
+
+    &_button
+        background-color: colors.$bright-yellow
+        border: 0
+        border-radius: 8px
+        padding: 16px 32px
+        margin-top: 32px
+        width: 100%
+        cursor: pointer
+        @include mixins.fontSizeBold(1.5rem, colors.$white)
+        transition: 0.3s
+
+        &:hover
+            background-color: hsl(71, 50%, 54%)
+
+.whyus
+    border-radius: 0 0 8px 8px
+    background-color: colors.$light-cyan
+
+    &_title
+        margin-bottom: 16px
+
+    &_characteristic
+        @include mixins.fontSizeRegular(1.2rem, rgba(255, 255, 255, 0.80))
+
+@media screen and (min-width: 1024px)
+    .container
+        &_content
+            &_grid
+                display: grid
+                grid-template-columns: 1fr 1fr
